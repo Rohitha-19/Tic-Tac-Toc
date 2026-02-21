@@ -1,0 +1,134 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  background: linear-gradient(135deg, #481286, #5c138d, #5b1991);
+  font-family: Arial, sans-serif;
+}
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background: rgba(187, 163, 199, 0.05);
+  backdrop-filter: blur(12px);
+
+  color: rgb(255, 255, 255);
+  text-align: center;
+  padding: 30px;
+}
+
+h1 {
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+}
+
+/* SCOREBOARD */
+.scoreboard {
+  display: flex;
+  gap: 40px;
+  font-size: 1.1rem;
+  margin: 10px 0;
+}
+
+/* STATUS */
+.status {
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+  transition: 0.3s;
+}
+
+/*WINNER*/
+.status.winner {
+  animation: glow 1s infinite alternate;
+  color: #facc15;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 5px #facc15;
+  }
+  to {
+    text-shadow: 0 0 20px #facc15;
+  }
+}
+
+/* TROPHY */
+.trophy {
+  display: inline-block;
+  animation: shake 0.6s infinite;
+}
+
+@keyframes shake {
+  0% { transform: rotate(0); }
+  25% { transform: rotate(5deg); }
+  50% { transform: rotate(-5deg); }
+  75% { transform: rotate(5deg); }
+  100% { transform: rotate(0); }
+}
+
+/* BOARD */
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  gap: 12px;
+  margin: 15px 0 25px;
+}
+
+/* BOX */
+.square {
+  width: 100px;
+  height: 100px;
+  font-size: 2rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  color: #38bdf8;
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.square:hover {
+  transform: scale(1.08);
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* BUTTON */
+.reset {
+  padding: 12px 32px;
+  font-size: 1rem;
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  color: black;
+}
+
+.reset:hover {
+  transform: scale(1.05);
+}
+
+/* MOBILE */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.6rem;
+  }
+
+  .board {
+    grid-template-columns: repeat(3, 80px);
+  }
+
+  .square {
+    width: 80px;
+    height: 80px;
+    font-size: 1.5rem;
+  }
+
+  .scoreboard {
+    gap: 20px;
+  }
+}
